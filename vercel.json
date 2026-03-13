@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "buildCommand": "cd client && npm run build",
+  "outputDirectory": "client/dist",
   "functions": {
     "server/server.js": {
       "runtime": "@vercel/node"
@@ -9,6 +11,10 @@
     {
       "src": "/api/(.*)",
       "dest": "/server/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/client/dist/$1"
     }
   ]
 }
